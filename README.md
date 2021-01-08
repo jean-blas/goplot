@@ -8,7 +8,7 @@ _plot [options] *.res_
 
 Enter _plot -h_ for common options usage and defaults.
 
-When a file contains several colums and the ycol option is not defined, then all column are drawn on the same graphics.
+When a file contains several colums and the _ycol_ option is not defined, then all columns are drawn on the same graphics.
 
 When several files are entered in command line (ex: _plot file1 file2 file3_) then the files are plotted on the same graphics as well.
 
