@@ -82,7 +82,7 @@ func AddWithPointsXY(x, y []float64, legend string, n int, p *plot.Plot) error {
 	points.Shape = draw.CircleGlyph{}
 	points.Color = getColor(n)
 	p.Add(points)
-	addLegend(legend, p, points, false, 120)
+	addLegend(legend, p, points, 10)
 	p.Y.Tick.Marker = commaTicks{}
 	return nil
 }
@@ -95,13 +95,13 @@ func AddWithLineXY(x, y []float64, legend string, n int, p *plot.Plot) error {
 	}
 	line.Color = getColor(n)
 	p.Add(line)
-	addLegend(legend, p, line, false, 10)
+	addLegend(legend, p, line, 10)
 	p.Y.Tick.Marker = commaTicks{}
 	return nil
 }
 
 // Add a legend with some position tuned
-func addLegend(legend string, p *plot.Plot, thumb plot.Thumbnailer, top bool, yoff vg.Length) {
+func addLegend(legend string, p *plot.Plot, thumb plot.Thumbnailer, yoff vg.Length) {
 	if legend != "" {
 		p.Legend.Add(legend, thumb)
 		p.Legend.Padding = -1.
@@ -109,7 +109,7 @@ func addLegend(legend string, p *plot.Plot, thumb plot.Thumbnailer, top bool, yo
 		p.Legend.YAlign = 0.
 		p.Legend.YPosition = -1
 	}
-	p.Legend.Top = top
+	p.Legend.Top = YTOPLEGEND
 }
 
 // createPointsXY Transform the x, y slices into plotter
